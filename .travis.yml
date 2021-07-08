@@ -1,6 +1,9 @@
-services:
-  - docker
+branches:
+  only:
+    - main
 script:
   - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
   - docker build -t dskyiocom/nginx-alpine-letsencrypt .
   - docker push dskyiocom/nginx-alpine-letsencrypt
+services:
+  - docker
