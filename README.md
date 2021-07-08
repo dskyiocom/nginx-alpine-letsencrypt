@@ -30,5 +30,5 @@ Passing account notification `EMAIL` is optional.
 
 ```console
 mkdir certs
-docker run -e ACCEPT_TOS=true -e EMAIL=letsencrypt-notify@example.com -v "$PWD/certs:/etc/letsencrypt" -v "$PWD/nginx.conf:/etc/nginx/nginx.conf" dskyiocom/nginx-alpine-letsencrypt
+docker run -e ACCEPT_TOS=false -e EMAIL=letsencrypt-notify@example.com -v "$PWD/certs:/etc/letsencrypt" -v "$PWD/nginx.conf:/etc/nginx/nginx.conf" dskyiocom/nginx-alpine-letsencrypt
 ```
