@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/dskyiocom/nginx-alpine-letsencrypt.svg?branch=main)](https://travis-ci.com/dskyiocom/nginx-alpine-letsencrypt)
+
 # Summary
 
 Obtains configured certificates using Let's Encrypt
@@ -32,3 +34,7 @@ Passing account notification `EMAIL` is optional.
 mkdir certs
 docker run -e ACCEPT_TOS=false -e EMAIL=letsencrypt-notify@example.com -v "$PWD/certs:/etc/letsencrypt" -v "$PWD/nginx.conf:/etc/nginx/nginx.conf" dskyiocom/nginx-alpine-letsencrypt
 ```
+
+# Certificate renewal
+
+Using https://hub.docker.com/repository/docker/dskyiocom/renew-letsencrypt automatic renewals can be setup
