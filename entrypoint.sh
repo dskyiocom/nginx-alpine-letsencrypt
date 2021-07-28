@@ -1,7 +1,6 @@
 #!/bin/sh
 
 [ "$AGREE_TOS" = true ] || exit 1
-[ "$(id -u)" != 0 ] && exec nginx -g 'daemon off;'
 
 while :; do
   match="$(nginx -T 2>&1 | egrep -o 'cannot load certificate "/etc/letsencrypt/live/[^/]*/fullchain.pem"' | uniq)"
@@ -13,6 +12,8 @@ while :; do
 done
 
 for dir in /etc/letsencrypt/live/*/; do
+  [[ "$(readlink -f "$dir/fullchain.pem")" == /work/fullchain.pem ]] || continue
+
   domain="$(basename "$dir")"
   rm -r "$dir"
   if [ -n "$EMAIL" ]; then
@@ -22,4 +23,4 @@ for dir in /etc/letsencrypt/live/*/; do
   fi
 done
 
-exec su nginx "$0"
+exec nginx -g 'daemon off;'
