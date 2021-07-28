@@ -1,7 +1,7 @@
 #!/bin/sh
 
 [ "$AGREE_TOS" = true ] || exit 1
-[ "$UID" != 0 ] && exec nginx -g 'daemon off;'
+[ "$(id -u)" != 0 ] && exec nginx -g 'daemon off;'
 
 while :; do
   match="$(nginx -T 2>&1 | egrep -o 'cannot load certificate "/etc/letsencrypt/live/[^/]*/fullchain.pem"' | uniq)"
