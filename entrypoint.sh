@@ -8,8 +8,8 @@ while :; do
   [ -z "$match" ] && break
   dir="$(dirname "$(echo "$match" | awk '{print $4}' | cut -d '"' -f 2)")"
   mkdir -p "$dir"
-  ln -s /fullchain.pem "$dir/fullchain.pem"
-  ln -s /privkey.pem "$dir/privkey.pem"
+  ln -s /work/fullchain.pem "$dir/fullchain.pem"
+  ln -s /work/privkey.pem "$dir/privkey.pem"
 done
 
 for dir in /etc/letsencrypt/live/*/; do
