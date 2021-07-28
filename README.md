@@ -26,13 +26,13 @@ ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
 
 # How to use this image
 
-You need to agree to the ACME server's Subscriber Agreement by setting `ACCEPT_TOS` to `true`.
+You need to agree to the ACME server's Subscriber Agreement by setting `AGREE_TOS` to `true`.
 
 Passing account notification `EMAIL` is optional.
 
 ```console
 mkdir certs
-docker run -e ACCEPT_TOS=false -e EMAIL=letsencrypt-notify@example.com -v "$PWD/certs:/etc/letsencrypt" -v "$PWD/nginx.conf:/etc/nginx/nginx.conf" dskyiocom/nginx-alpine-letsencrypt
+docker run -e AGREE_TOS=false -e EMAIL=letsencrypt-notify@example.com -v "$PWD/certs:/etc/letsencrypt" -v "$PWD/nginx.conf:/etc/nginx/nginx.conf" dskyiocom/nginx-alpine-letsencrypt
 ```
 
 # Certificate renewal
