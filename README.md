@@ -12,7 +12,7 @@ https://github.com/dskyiocom/nginx-alpine-letsencrypt
 
 - `latest`
 
-# NGINX configuration
+# NGINX config
 
 Upon start the NGINX configuration is scanned for `ssl_certificate` directives pointing to `/etc/letsencrypt/live/*/fullchain.pem` files.
 
